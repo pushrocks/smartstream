@@ -1,0 +1,19 @@
+{
+  "name": "smartstream",
+  "version": "1.0.0",
+  "description": "simplifies access to node streams, TypeScript ready!",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "(npmts)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/pushrocks/smartstream.git"
+  },
+  "author": "Lossless GmbH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/pushrocks/smartstream/issues"
+  },
+  "homepage": "https://gitlab.com/pushrocks/smartstream#README"
+}
