@@ -15,17 +15,12 @@ export interface ICustomEventObject {
  */
 export declare class Smartstream {
     private streamArray;
-    private errorFunction;
     private customEventObjectArray;
     private streamStartedDeferred;
     /**
      * constructor
      */
     constructor(streamArrayArg: any[]);
-    /**
-     * attach an error handler to the stream to prevent throwing
-     */
-    onError(errorFunctionArg: IErrorFunction): void;
     /**
      * make something with the stream itself
      */

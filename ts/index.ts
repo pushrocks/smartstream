@@ -18,7 +18,6 @@ export interface ICustomEventObject {
  */
 export class Smartstream {
     private streamArray = []
-    private errorFunction: IErrorFunction = null
     private customEventObjectArray: ICustomEventObject[] = []
     private streamStartedDeferred = plugins.q.defer()
 
@@ -27,13 +26,6 @@ export class Smartstream {
      */
     constructor(streamArrayArg: any[]) {
         this.streamArray = streamArrayArg
-    }
-
-    /**
-     * attach an error handler to the stream to prevent throwing
-     */
-    onError(errorFunctionArg: IErrorFunction) {
-        this.errorFunction = errorFunctionArg
     }
 
     /**
@@ -71,9 +63,9 @@ export class Smartstream {
             if (firstIteration === true) {
                 finalStream = stream
             }
-            if (this.errorFunction !== null) {
-                stream.on('error', this.errorFunction)
-            }
+            stream.on('error', (err) => {
+                done.reject(err)
+            })
             for (let customEventObject of this.customEventObjectArray) {
                 stream.on(customEventObject.eventName, customEventObject.eventFunction)
             }
