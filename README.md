@@ -30,7 +30,8 @@ let mySmartstream = new Smartstream([
     gulp.dest('./some/output/path')
 ])
 
-mySmartstream.onError((err) => {/* handle error */}) // handles all errors in stream
+mySmartstream.onError((err) => { /* handle error */ }) // handles all errors in stream
+myStream.onCustomEvent('myeventname', (args...) => { /* Do something */ }) // emit an custom event anywhere in your stream
 mySmartstream.run().then(() => {/* do something when stream is finished */})
 ```
 

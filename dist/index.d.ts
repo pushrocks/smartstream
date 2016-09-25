@@ -3,9 +3,6 @@ import * as plugins from './smartstream.plugins';
 export interface IErrorFunction {
     (err: any): any;
 }
-export interface IStreamStartFunction {
-    (stream: any): any;
-}
 export interface ICustomEventFunction {
     (): any;
 }
@@ -17,10 +14,13 @@ export interface ICustomEventObject {
  * class Smartstream handles
  */
 export declare class Smartstream {
-    streamArray: any[];
-    errorFunction: IErrorFunction;
-    streamStartFunction: IStreamStartFunction;
-    customEventObjectArray: ICustomEventObject[];
+    private streamArray;
+    private errorFunction;
+    private customEventObjectArray;
+    private streamStartedDeferred;
+    /**
+     * constructor
+     */
     constructor(streamArrayArg: any[]);
     /**
      * attach an error handler to the stream to prevent throwing
@@ -29,7 +29,11 @@ export declare class Smartstream {
     /**
      * make something with the stream itself
      */
-    onStreamStart(): plugins.q.Promise<any>;
+    streamStarted(): plugins.q.Promise<any>;
+    /**
+     * attach listener to custom event
+     */
+    onCustomEvent(eventNameArg: string, eventFunctionArg: ICustomEventFunction): void;
     /**
      * run the stream
      * @returns Promise
