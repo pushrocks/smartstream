@@ -26,7 +26,6 @@
   "dependencies": {
     "@types/q": "0.x.x",
     "q": "^1.4.1",
-    "stream-combiner2": "^1.1.1",
     "typings-global": "^1.0.14"
   }
 }
