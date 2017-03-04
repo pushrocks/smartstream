@@ -1,5 +1,7 @@
 /// <reference types="q" />
+/// <reference types="node" />
 import * as plugins from './smartstream.plugins';
+import { Transform } from 'stream';
 export interface IErrorFunction {
     (err: any): any;
 }
@@ -35,4 +37,4 @@ export declare class Smartstream {
      */
     run(): plugins.q.Promise<void>;
 }
-export declare let cleanPipe: () => void;
+export declare let cleanPipe: () => Transform;

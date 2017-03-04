@@ -1,5 +1,9 @@
 import * as plugins from './smartstream.plugins'
 
+// interfaces 
+import { Transform } from 'stream'
+
+
 export interface IErrorFunction {
   (err): any
 }
@@ -91,7 +95,7 @@ export class Smartstream {
 }
 
 export let cleanPipe = () => {
-  plugins.through2.obj(
+  return plugins.through2.obj(
     (file, enc, cb) => {
       cb()
     },
