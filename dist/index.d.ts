@@ -35,3 +35,4 @@ export declare class Smartstream {
      */
     run(): plugins.q.Promise<void>;
 }
+export declare let cleanPipe: () => void;
