@@ -1,26 +1,37 @@
+# gitzone standard
 image: hosttoday/ht-docker-node:npmts
+
 stages:
 - test
 - release
-- page
+- trigger
+- pages
+
 testLEGACY:
   stage: test
   script:
     - npmci test legacy
+  coverage: /\d+.?\d+?\%\s*coverage/
   tags:
     - docker
+  allow_failure: true
+
 testLTS:
   stage: test
   script:
     - npmci test lts
+  coverage: /\d+.?\d+?\%\s*coverage/
   tags:
     - docker
+    
 testSTABLE:
   stage: test
   script:
     - npmci test stable
+  coverage: /\d+.?\d+?\%\s*coverage/
   tags:
     - docker
+
 release:
   stage: release
   script:
@@ -29,11 +40,21 @@ release:
     - tags
   tags:
     - docker
+
+trigger:
+  stage: trigger
+  script:
+    - npmci trigger
+  only:
+    - tags
+  tags:
+    - docker
+
 pages:
   image: hosttoday/ht-docker-node:npmpage
-  stage: page
+  stage: pages
   script:
-    - npmci command npmpage --host gitlab
+    - npmci command npmpage --publish gitlab
   only:
     - tags
   artifacts:

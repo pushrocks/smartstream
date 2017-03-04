@@ -1,1 +1,7 @@
-{}
+{
+  "npmci": {
+    "globalNpmTools": [
+      "npmts"
+    ]
+  }
+}
