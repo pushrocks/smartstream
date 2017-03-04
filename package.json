@@ -1,6 +1,6 @@
 {
   "name": "smartstream",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "simplifies access to node streams, TypeScript ready!",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
