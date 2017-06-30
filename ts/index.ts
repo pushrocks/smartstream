@@ -1,8 +1,7 @@
 import * as plugins from './smartstream.plugins'
 
-// interfaces 
+// interfaces
 import { Transform } from 'stream'
-
 
 export interface IErrorFunction {
   (err): any
@@ -35,14 +34,14 @@ export class Smartstream {
   /**
    * make something with the stream itself
    */
-  streamStarted(): plugins.q.Promise<any> {
+  streamStarted (): Promise<any> {
     return this.streamStartedDeferred.promise
   }
 
   /**
    * attach listener to custom event
    */
-  onCustomEvent(eventNameArg: string, eventFunctionArg: ICustomEventFunction) {
+  onCustomEvent (eventNameArg: string, eventFunctionArg: ICustomEventFunction) {
     this.customEventObjectArray.push({
       eventName: eventNameArg,
       eventFunction: eventFunctionArg
@@ -53,7 +52,7 @@ export class Smartstream {
    * run the stream
    * @returns Promise
    */
-  run(): plugins.q.Promise<void> {
+  run (): Promise<void> {
     let done = plugins.q.defer<void>()
 
     // clone Array

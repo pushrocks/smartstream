@@ -1,20 +1,15 @@
-import 'typings-test'
 import fs = require('fs')
-import * as should from 'should'
+import { expect, tap } from 'tapbundle'
 
 import * as smartstream from '../dist/index'
 
 let testSmartstream: smartstream.Smartstream
-
-describe('smartstream', function() {
-    it('should combine a stream', function(done){
-        this.timeout(5000)
-        testSmartstream = new smartstream.Smartstream([
-            fs.createReadStream('./test/assets/test.md'),
-            fs.createWriteStream('./test/assets/testCopy.md')
-        ])
-        testSmartstream.run().then(() => {
-            done()
-        })
-    })
+tap.test('should combine a stream', async () => {
+  testSmartstream = new smartstream.Smartstream([
+    fs.createReadStream('./test/assets/test.md'),
+    fs.createWriteStream('./test/assets/testCopy.md')
+  ])
+  await testSmartstream.run()
 })
+
+tap.start()
