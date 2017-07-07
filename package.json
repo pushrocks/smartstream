@@ -18,11 +18,11 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartstream#README",
   "devDependencies": {
-    "tapbundle": "^1.0.14"
+    "tapbundle": "^1.1.0"
   },
   "dependencies": {
     "@types/through2": "^2.0.33",
-    "smartq": "^1.1.1",
+    "smartq": "^1.1.6",
     "through2": "^2.0.3",
     "typings-global": "^1.0.19"
   }
