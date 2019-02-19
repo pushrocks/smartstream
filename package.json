@@ -1,11 +1,13 @@
 {
-  "name": "smartstream",
+  "name": "@pushrocks/smartstream",
   "version": "1.0.11",
-  "description": "simplifies access to node streams, TypeScript ready!",
+  "private": false,
+  "description": "simplifies access to node streams",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "test": "(npmts)"
+    "test": "(tstest test/)",
+    "build": "(tsbuild)"
   },
   "repository": {
     "type": "git",
@@ -18,12 +20,15 @@
   },
   "homepage": "https://gitlab.com/pushrocks/smartstream#README",
   "devDependencies": {
-    "tapbundle": "^1.1.0"
+    "@gitzone/tsbuild": "^2.1.8",
+    "@gitzone/tstest": "^1.0.18",
+    "@pushrocks/tapbundle": "^3.0.7",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0"
   },
   "dependencies": {
-    "@types/through2": "^2.0.33",
-    "smartq": "^1.1.6",
-    "through2": "^2.0.3",
-    "typings-global": "^1.0.19"
+    "@pushrocks/smartpromise": "^2.0.5",
+    "@types/through2": "^2.0.34",
+    "through2": "^3.0.0"
   }
 }
