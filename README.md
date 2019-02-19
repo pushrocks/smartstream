@@ -20,6 +20,21 @@ simplifies access to node streams
 
 Use TypeScript for best in class instellisense.
 
+```typescript
+import { Smartstream } from 'smartstream'
+import * as gUglify from 'gulp-uglify'
+
+let mySmartstream = new Smartstream([
+    gulp.src(['./file1.js','./file2.js']),
+    gUglify(),
+    gulp.dest('./some/output/path')
+])
+
+mySmartstream.onError((err) => { /* handle error */ }) // handles all errors in stream
+myStream.onCustomEvent('myeventname', (args...) => { /* Do something */ }) // emit an custom event anywhere in your stream
+mySmartstream.run().then(() => {/* do something when stream is finished */})
+```
+
 For further information read the linked docs at the top of this readme.
 
 > MIT licensed | **&copy;** [Lossless GmbH](https://lossless.gmbh)
